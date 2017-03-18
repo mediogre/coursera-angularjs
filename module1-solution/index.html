@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Lunch Checker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <style>
+      .message { font-size: 1.3em; font-weight: bold; }
+      .message-valid { color: green; }
+      .message-empty { color: red; }
+      .input-valid { border-color: green; }
+      .input-empty { border-color: red; }
+      .asterisk { font-size: 0.8em; color: gray; padding-bottom: 5px}
+    </style>
+  </head>
+<body ng-app='TooMuchApp'>
+   <div class="container" ng-controller='TooMuchController'>
+     <h1>Lunch Checker</h1>
+	 <div class="asterisk">
+	   * Emptiness between commas `, ,` is not counted as an item.
+	 </div>
+         <div class="form-group">
+             <input id="lunch-menu" type="text"
+		    placeholder="list comma separated dishes you usually have for lunch"
+		    class="form-control input-{{inputState}}"
+		    ng-model="input"
+		    >
+         </div>
+         <div class="form-group">
+             <button class="btn btn-default" ng-click="checkItems()">Check If Too Much</button>
+         </div>
+         <div class="form-group message message-{{inputState}}">
+	   {{message}}
+         </div>
+   </div>
+</body>
+</html>
